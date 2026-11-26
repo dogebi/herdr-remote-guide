@@ -4,60 +4,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Herdr 실전 가이드 · 키맵과 원격 작업</title>
+<title data-i18n="meta.title">Herdr 실전 가이드 · 키맵과 원격 작업</title>
 <meta name="description" content="패널을 나누고 원격 호스트에 접속한 뒤 에이전트가 남긴 결과를 검토합니다.">
 <link rel="stylesheet" href="./guide.css">
+<script>window.__HG_I18N__ = /*I18N_START*/{"ko":{"applied.body":"행 구분선과 코드 머리줄로 구조를 정리했습니다. 산화철 주황을 링크와 진행 표시 등에 적용했고, 7단계 흐름을 SVG로 그렸습니다. 모바일에서도 명령을 표시합니다. 언어는 한국어·중국어·일본어 세 가지이며, 라이트·다크 테마를 상단에서 바꿉니다.","applied.title":"이 페이지에 적용한 것","bar.brand":"herdr · 실전 가이드","flow.caption":"작업 흐름","flow.choice":"04·05 중 하나 선택","flow.desc":"호스트 선택, SSH 확인, 경로 확인, SSH로 접속, 직접 연결, 작업 지시, 결과 검증. 04·05 중 하나 선택.","flow.n1":"호스트 선택","flow.n2":"SSH 확인","flow.n3":"경로 확인","flow.n4":"SSH로 접속","flow.n5":"직접 연결","flow.n6":"작업 지시","flow.n7":"결과 검증","flow.title":"작업 흐름","foot.link":"Herdr 공식 문서","handoff.link":"공식 Herdr 스킬","handoff.prompt":"작업 지시에 호스트와 저장소 경로, 수정 범위와 검증 기준을 적으세요.","handoff.review":"패널이 완료로 표시되면 변경 내역과 검증 명령의 출력을 검토하세요.","handoff.sample":"작업 지시 예시","handoff.sampleBody":"개발 호스트의 /work/demo에서 README의 실행 절차를 확인해 주세요. 문서만 수정하고, 실행한 확인 명령과 남은 제약을 보고해 주세요.","handoff.title":"에이전트에게 작업 맡기기","head.lead":"패널을 나누고 원격 호스트에 접속한 뒤 에이전트가 남긴 결과를 검토합니다.","head.subtitle":"키맵과 원격 작업","head.title":"Herdr 실전 가이드","kb.detach":"세션에서 분리","kb.keymap":"현재 키맵 보기","kb.link":"공식 키보드 문서","kb.newTab":"새 탭 열기","kb.splitDown":"아래로 분할","kb.splitRight":"오른쪽으로 분할","kb.title":"키보드로 패널 다루기","meta.title":"Herdr 실전 가이드 · 키맵과 원격 작업","nav.handoff":"작업 인계","nav.keyboard":"키보드","nav.remote":"원격 연결","nav.skills":"스킬 4가지","nav.troubleshoot":"문제 해결","remote.intro":"원격 호스트에 Herdr와 에이전트 CLI를 설치합니다. SSH로 들어가 프로젝트 폴더에서 Herdr를 실행하세요. 같은 호스트에 다시 접속하면 세션을 이어갈 수 있습니다.","remote.link":"공식 원격 작업 가이드","remote.title":"다른 컴퓨터에서 작업하기","skills.d.body":"아키텍처, 데이터 흐름, 시퀀스를 인라인 SVG가 든 HTML 한 장으로 그립니다. 화살표와 라벨이 겹치지 않게.","skills.d.name":"Diagram Design","skills.d.role":"구조 시각화","skills.d.when":"구조를 설명할 때","skills.h.body":"대비 강조, 극적 결론, 의미 부풀리기를 걷어냅니다. 사실과 숫자는 건드리지 않습니다.","skills.h.name":"Humanizer","skills.h.role":"문장 교정","skills.h.when":"공개 문구 마무리","skills.title":"에이전트에 붙이는 스킬 4가지","skills.u.body":"보라 그라데이션, 글로우, 이모지 라벨, 과장 문구, 들쭉날쭉한 간격을 위치와 함께 짚고 고친 HTML을 만듭니다.","skills.u.name":"Unslop","skills.u.role":"화면 점검","skills.u.when":"이미 화면이 있을 때","skills.ui.body":"제품 유형과 업종에 맞는 레이아웃·팔레트·글꼴 조합을 고르고, 피해야 할 패턴을 먼저 정합니다.","skills.ui.name":"UI UX Pro Max","skills.ui.role":"디자인 방향","skills.ui.when":"구현 전","trouble.i1":"한글 조합 중 키가 반응하지 않으면 조합을 끝내거나 영문 입력으로 전환하세요.","trouble.i2":"그래도 반응하지 않으면 OS와 터미널이 같은 키 조합을 사용하는지 확인하세요.","trouble.i3":"원격 연결이 끊기면 SSH, 프로젝트 경로, Herdr 세션을 차례로 확인하세요. 패널 ID가 만료됐다면 목록을 다시 조회하세요.","trouble.title":"입력과 연결 문제 해결","ui.cli":"Herdr CLI","ui.copy":"복사","ui.terminal":"터미널","handoff.intro":"사이드바에서 진행 상태와 입력 대기를 확인하세요. CLI 명령은 설치된 버전의 도움말과 공식 스킬을 참고하세요.","kb.config":"설정의 <code>[keys]</code>에서 단축키를 바꾼 뒤 <kbd>prefix</kbd> → <kbd>?</kbd>로 적용 여부를 확인하세요.","kb.intro":"기본 prefix는 <kbd>Ctrl+B</kbd>입니다. 누르고 손을 뗀 뒤 동작 키를 누르세요.","remote.client":"로컬 클라이언트에서 직접 연결하려면 <code>herdr --remote</code> 방식을 사용합니다. SSH 방식과 직접 연결 중 하나를 고르세요.","skills.lead":"패널에서 에이전트를 돌릴 때 결과물의 완성도를 좌우하는 커뮤니티 스킬입니다. 설치 명령과 실전 프롬프트, 각 스킬이 하지 않는 일은 <a href=\"https://dogebi.github.io/claude-code-4-skills/\">별도 정리 페이지</a>에 있습니다.","skills.note":"네 가지 모두 Anthropic 공식 기능이 아닌 커뮤니티 제작 스킬입니다. 설치 전에 저장소 코드와 요청 권한을 읽고, 결과물은 사람이 마지막에 확인하세요.","meta.description":"패널을 나누고 원격 호스트에 접속한 뒤 에이전트가 남긴 결과를 검토합니다.","ui.copied":"복사됨","ui.copyFail":"복사 실패","ui.theme.toDark":"다크","ui.theme.toLight":"라이트","ui.theme.toDarkAria":"다크 모드로 전환","ui.theme.toLightAria":"라이트 모드로 전환"},"zh":{"applied.body":"用行分隔线和代码头部栏整理了结构。把氧化铁橙应用到链接和进度指示等处，并用 SVG 画出了 7 步流程。在移动端也会显示命令。语言有韩语、中文、日语三种，浅色与深色主题可在顶部切换。","applied.title":"本页应用的内容","bar.brand":"herdr · 实战指南","flow.caption":"工作流程","flow.choice":"04·05 任选其一","flow.desc":"选择主机、确认 SSH、确认路径、通过 SSH 接入、直接连接、下达任务、验证结果。04·05 任选其一。","flow.n1":"选择主机","flow.n2":"确认 SSH","flow.n3":"确认路径","flow.n4":"SSH 接入","flow.n5":"直接连接","flow.n6":"下达任务","flow.n7":"验证结果","flow.title":"工作流程","foot.link":"Herdr 官方文档","handoff.link":"官方 Herdr 技能","handoff.prompt":"在任务指令中写明主机与仓库路径、修改范围和验证标准。","handoff.review":"面板显示完成后，检查变更内容和验证命令的输出。","handoff.sample":"任务指令示例","handoff.sampleBody":"请在开发主机的 /work/demo 中确认 README 的运行步骤。只修改文档，并报告执行过的确认命令和仍存在的限制。","handoff.title":"把任务交给 Agent","head.lead":"分屏、连接远程主机，然后检查 Agent 留下的结果。","head.subtitle":"键位表与远程工作","head.title":"Herdr 实战指南","kb.detach":"从会话中分离","kb.keymap":"查看当前键位表","kb.link":"官方键盘文档","kb.newTab":"打开新标签页","kb.splitDown":"向下分屏","kb.splitRight":"向右分屏","kb.title":"用键盘操作面板","meta.title":"Herdr 实战指南 · 键位表与远程工作","nav.handoff":"任务交接","nav.keyboard":"键盘","nav.remote":"远程连接","nav.skills":"4 个技能","nav.troubleshoot":"问题排查","remote.intro":"在远程主机上安装 Herdr 和 Agent CLI。通过 SSH 登录，在项目文件夹中运行 Herdr。再次连接同一主机时可以继续之前的会话。","remote.link":"官方远程工作指南","remote.title":"在其他电脑上工作","skills.d.body":"把架构、数据流、时序画进一张内嵌 SVG 的 HTML。箭头与标签不重叠。","skills.d.name":"Diagram Design","skills.d.role":"结构可视化","skills.d.when":"解释结构时","skills.h.body":"去掉对比强调、戏剧化结论和夸大表述。不动事实与数字。","skills.h.name":"Humanizer","skills.h.role":"句子校订","skills.h.when":"定稿公开文案","skills.title":"给 Agent 装配的 4 个技能","skills.u.body":"指出紫色渐变、发光、emoji 标签、夸张文案、参差间距的位置，并产出修好的 HTML。","skills.u.name":"Unslop","skills.u.role":"界面检查","skills.u.when":"界面已存在时","skills.ui.body":"按产品类型与行业选定布局·配色·字体组合，先定下应避免的模式。","skills.ui.name":"UI UX Pro Max","skills.ui.role":"设计方向","skills.ui.when":"实现之前","trouble.i1":"韩文正在组合时如果按键无响应，请先结束组合或切换到英文输入。","trouble.i2":"仍无响应时，检查系统和终端是否使用了相同的按键组合。","trouble.i3":"远程连接断开时，依次检查 SSH、项目路径、Herdr 会话。面板 ID 已过期就重新查询列表。","trouble.title":"输入与连接问题排查","ui.cli":"Herdr CLI","ui.copy":"复制","ui.terminal":"终端","handoff.intro":"在侧边栏查看进度和等待输入的状态。CLI 命令请参考已安装版本的帮助和官方技能。","kb.config":"在配置的 <code>[keys]</code> 中改快捷键，然后用 <kbd>prefix</kbd> → <kbd>?</kbd> 确认是否生效。","kb.intro":"默认 prefix 是 <kbd>Ctrl+B</kbd>。按下并松开后，再按动作键。","remote.client":"从本地客户端直接连接时使用 <code>herdr --remote</code> 方式。在 SSH 方式与直接连接中选择一种。","skills.lead":"在面板里跑 Agent 时，这些社区技能会影响产出物的完成度。安装命令、实用提示词，以及各技能不做的事，都在<a href=\"https://dogebi.github.io/claude-code-4-skills/\">单独整理的页面</a>上。","skills.note":"这四个都是社区制作的技能，不是 Anthropic 官方功能。安装前请阅读仓库代码和申请权限，结果由人做最后确认。","meta.description":"分屏、连接远程主机，然后检查 Agent 留下的结果。","ui.copied":"已复制","ui.copyFail":"复制失败","ui.theme.toDark":"深色","ui.theme.toLight":"浅色","ui.theme.toDarkAria":"切换到深色模式","ui.theme.toLightAria":"切换到浅色模式"},"ja":{"applied.body":"行区切り線とコードの見出し行で構造を整理しました。酸化鉄のオレンジをリンクと進行表示などに適用し、7ステップの流れを SVG で描きました。モバイルでもコマンドを表示します。言語は韓国語・中国語・日本語の3つで、ライト・ダークテーマは上部で切り替えます。","applied.title":"このページに適用したもの","bar.brand":"herdr · 実践ガイド","flow.caption":"作業の流れ","flow.choice":"04·05いずれか","flow.desc":"ホスト選択、SSH 確認、パス確認、SSH で接続、直接接続、作業指示、結果検証。04·05 のいずれかを選びます。","flow.n1":"ホスト選択","flow.n2":"SSH確認","flow.n3":"パス確認","flow.n4":"SSHで接続","flow.n5":"直接接続","flow.n6":"作業指示","flow.n7":"結果検証","flow.title":"作業の流れ","foot.link":"Herdr 公式ドキュメント","handoff.link":"公式 Herdr スキル","handoff.prompt":"作業指示にはホストとリポジトリのパス、修正範囲と検証基準を書いてください。","handoff.review":"パネルが完了と表示されたら、変更内容と検証コマンドの出力を確認してください。","handoff.sample":"作業指示の例","handoff.sampleBody":"開発ホストの /work/demo で README の実行手順を確認してください。ドキュメントだけを修正し、実行した確認コマンドと残っている制約を報告してください。","handoff.title":"エージェントに作業を任せる","head.lead":"パネルを分割し、リモートホストに接続したうえで、エージェントが残した結果を確認します。","head.subtitle":"キーマップとリモート作業","head.title":"Herdr 実践ガイド","kb.detach":"セッションから分離","kb.keymap":"現在のキーマップを見る","kb.link":"公式キーボードドキュメント","kb.newTab":"新しいタブを開く","kb.splitDown":"下に分割","kb.splitRight":"右に分割","kb.title":"キーボードでパネルを操作する","meta.title":"Herdr 実践ガイド · キーマップとリモート作業","nav.handoff":"作業の引き継ぎ","nav.keyboard":"キーボード","nav.remote":"リモート接続","nav.skills":"スキル4種","nav.troubleshoot":"トラブル解決","remote.intro":"リモートホストに Herdr とエージェント CLI をインストールします。SSH で入り、プロジェクトフォルダで Herdr を実行してください。同じホストに再接続するとセッションを続けられます。","remote.link":"公式リモート作業ガイド","remote.title":"別のコンピュータで作業する","skills.d.body":"アーキテクチャ、データフロー、シーケンスをインライン SVG を含む HTML 1枚に描きます。矢印とラベルが重ならないように。","skills.d.name":"Diagram Design","skills.d.role":"構造の可視化","skills.d.when":"構造を説明するとき","skills.h.body":"対比の強調、劇的な結論、意味の膨らませを取り除きます。事実と数字には触れません。","skills.h.name":"Humanizer","skills.h.role":"文章校正","skills.h.when":"公開文の仕上げ","skills.title":"エージェントに付けるスキル4種","skills.u.body":"紫のグラデーション、グロー、絵文字ラベル、誇張した文句、不揃いな余白を位置とともに指摘し、修正した HTML を作ります。","skills.u.name":"Unslop","skills.u.role":"画面の点検","skills.u.when":"画面がすでにあるとき","skills.ui.body":"製品の種類と業種に合うレイアウト・パレット・書体の組み合わせを選び、避けるべきパターンを先に決めます。","skills.ui.name":"UI UX Pro Max","skills.ui.role":"デザインの方向","skills.ui.when":"実装前","trouble.i1":"ハングル入力の変換中にキーが反応しない場合は、変換を終えるか英字入力に切り替えてください。","trouble.i2":"それでも反応しない場合は、OS とターミナルが同じキー組み合わせを使っているか確認してください。","trouble.i3":"リモート接続が切れたら、SSH、プロジェクトのパス、Herdr セッションの順に確認してください。パネル ID が失効している場合は、一覧を再取得してください。","trouble.title":"入力と接続のトラブル解決","ui.cli":"Herdr CLI","ui.copy":"コピー","ui.terminal":"ターミナル","handoff.intro":"サイドバーで進行状況と入力待ちを確認してください。CLI コマンドは、インストールしたバージョンのヘルプと公式スキルを参照してください。","kb.config":"設定の <code>[keys]</code> でショートカットを変更し、<kbd>prefix</kbd> → <kbd>?</kbd> で反映を確認してください。","kb.intro":"既定の prefix は <kbd>Ctrl+B</kbd> です。押して手を離してから、操作キーを押してください。","remote.client":"ローカルクライアントから直接接続するには <code>herdr --remote</code> 方式を使います。SSH 方式と直接接続のどちらかを選んでください。","skills.lead":"パネルでエージェントを動かすとき、成果物の完成度を左右するコミュニティスキルです。インストールコマンドと実践プロンプト、各スキルがしないことは<a href=\"https://dogebi.github.io/claude-code-4-skills/\">別のまとめページ</a>にあります。","skills.note":"4つはいずれも Anthropic 公式の機能ではなく、コミュニティ製のスキルです。インストール前にリポジトリのコードと要求する権限を読み、成果物は最後に人が確認してください。","meta.description":"パネルを分割し、リモートホストに接続したうえで、エージェントが残した結果を確認します。","ui.copied":"コピー済み","ui.copyFail":"コピー失敗","ui.theme.toDark":"ダーク","ui.theme.toLight":"ライト","ui.theme.toDarkAria":"ダークモードに切り替え","ui.theme.toLightAria":"ライトモードに切り替え"}}/*I18N_END*/;</script>
 <script defer src="./guide.js"></script>
 </head>
 <body data-copied="복사됨" data-failed="복사 실패">
 <header class="intro">
-<h1>Herdr 실전 가이드</h1>
-<p class="subtitle">키맵과 원격 작업</p>
-<p class="lead">패널을 나누고 원격 호스트에 접속한 뒤 에이전트가 남긴 결과를 검토합니다.</p>
+<div class="bar">
+<span class="brand" data-i18n="bar.brand">herdr · 실전 가이드</span>
+<span class="tools">
+<span class="langs" role="group" aria-label="Language">
+<button class="lang-btn" type="button" data-lang="ko" aria-pressed="true">KO</button>
+<button class="lang-btn" type="button" data-lang="zh" aria-pressed="false" lang="zh-Hans">中文</button>
+<button class="lang-btn" type="button" data-lang="ja" aria-pressed="false" lang="ja">日本語</button>
+</span>
+<button id="theme-toggle" class="theme-btn" type="button" aria-pressed="false">다크</button>
+</span>
+</div>
+<h1 data-i18n="head.title">Herdr 실전 가이드</h1>
+<p class="subtitle" data-i18n="head.subtitle">키맵과 원격 작업</p>
+<p class="lead" data-i18n="head.lead">패널을 나누고 원격 호스트에 접속한 뒤 에이전트가 남긴 결과를 검토합니다.</p>
 </header>
 <nav class="contents" aria-label="목차">
-<div><a href="#keyboard">키보드</a><a href="#remote">원격 연결</a><a href="#handoff">작업 인계</a><a href="#troubleshoot">문제 해결</a></div>
+<div><a href="#keyboard" data-i18n="nav.keyboard">키보드</a><a href="#remote" data-i18n="nav.remote">원격 연결</a><a href="#handoff" data-i18n="nav.handoff">작업 인계</a><a href="#skills" data-i18n="nav.skills">스킬 4가지</a><a href="#troubleshoot" data-i18n="nav.troubleshoot">문제 해결</a></div>
 <progress aria-label="읽기 진행률" max="100" value="0"></progress>
 </nav>
 <main>
-<section id="keyboard"><h2>키보드로 패널 다루기</h2>
-<p>기본 prefix는 <kbd>Ctrl+B</kbd>입니다. 누르고 손을 뗀 뒤 동작 키를 누르세요.</p>
-<dl><div><dt>현재 키맵 보기</dt><dd><kbd>?</kbd></dd></div><div><dt>오른쪽으로 분할</dt><dd><kbd>v</kbd></dd></div><div><dt>아래로 분할</dt><dd><kbd>-</kbd></dd></div><div><dt>새 탭 열기</dt><dd><kbd>c</kbd></dd></div><div><dt>세션에서 분리</dt><dd><kbd>q</kbd></dd></div></dl>
-<p>설정의 <code>[keys]</code>에서 단축키를 바꾼 뒤 <kbd>prefix</kbd> → <kbd>?</kbd>로 적용 여부를 확인하세요.</p><a href="https://herdr.dev/docs/keyboard/">공식 키보드 문서</a></section>
-<section id="remote"><h2>다른 컴퓨터에서 작업하기</h2>
-<p>원격 호스트에 Herdr와 에이전트 CLI를 설치합니다. SSH로 들어가 프로젝트 폴더에서 Herdr를 실행하세요. 같은 호스트에 다시 접속하면 세션을 이어갈 수 있습니다.</p><figure class="code"><figcaption>터미널 <button type="button" hidden data-copy>복사</button></figcaption><pre><code>ssh dev-host
+<section id="keyboard"><h2 data-i18n="kb.title">키보드로 패널 다루기</h2>
+<p data-i18n-html="kb.intro">기본 prefix는 <kbd>Ctrl+B</kbd>입니다. 누르고 손을 뗀 뒤 동작 키를 누르세요.</p>
+<dl><div><dt data-i18n="kb.keymap">현재 키맵 보기</dt><dd><kbd>?</kbd></dd></div><div><dt data-i18n="kb.splitRight">오른쪽으로 분할</dt><dd><kbd>v</kbd></dd></div><div><dt data-i18n="kb.splitDown">아래로 분할</dt><dd><kbd>-</kbd></dd></div><div><dt data-i18n="kb.newTab">새 탭 열기</dt><dd><kbd>c</kbd></dd></div><div><dt data-i18n="kb.detach">세션에서 분리</dt><dd><kbd>q</kbd></dd></div></dl>
+<p data-i18n-html="kb.config">설정의 <code>[keys]</code>에서 단축키를 바꾼 뒤 <kbd>prefix</kbd> → <kbd>?</kbd>로 적용 여부를 확인하세요.</p><a href="https://herdr.dev/docs/keyboard/" data-i18n="kb.link">공식 키보드 문서</a></section>
+<section id="remote"><h2 data-i18n="remote.title">다른 컴퓨터에서 작업하기</h2>
+<p data-i18n="remote.intro">원격 호스트에 Herdr와 에이전트 CLI를 설치합니다. SSH로 들어가 프로젝트 폴더에서 Herdr를 실행하세요. 같은 호스트에 다시 접속하면 세션을 이어갈 수 있습니다.</p><figure class="code"><figcaption><span data-i18n="ui.terminal">터미널</span> <button type="button" hidden data-copy data-i18n="ui.copy">복사</button></figcaption><pre><code>ssh dev-host
 cd /path/to/project
 herdr</code></pre></figure>
-<p>로컬 클라이언트에서 직접 연결하려면 <code>herdr --remote</code> 방식을 사용합니다. SSH 방식과 직접 연결 중 하나를 고르세요.</p>
-<figure class="workflow"><figcaption>작업 흐름</figcaption>
+<p data-i18n-html="remote.client">로컬 클라이언트에서 직접 연결하려면 <code>herdr --remote</code> 방식을 사용합니다. SSH 방식과 직접 연결 중 하나를 고르세요.</p>
+<figure class="workflow"><figcaption data-i18n="flow.caption">작업 흐름</figcaption>
 <div class="diagram" tabindex="0" role="region" aria-label="작업 흐름">
 <svg viewBox="0 0 1080 268" width="1080" height="268" role="img" aria-labelledby="flow-title flow-description">
-<title id="flow-title">작업 흐름</title><desc id="flow-description">호스트 선택, SSH 확인, 경로 확인, SSH로 접속, 직접 연결, 작업 지시, 결과 검증. 04·05 중 하나 선택.</desc>
+<title id="flow-title" data-i18n="flow.title">작업 흐름</title><desc id="flow-description" data-i18n="flow.desc">호스트 선택, SSH 확인, 경로 확인, SSH로 접속, 직접 연결, 작업 지시, 결과 검증. 04·05 중 하나 선택.</desc>
 <path class="route" d="M72 116H384 M696 116H1008"/>
 <path class="route alternative" d="M384 116H696"/>
 <path class="brace" d="M496 76V60H740V76"/>
-<text class="choice" x="618" y="44">04·05 중 하나 선택</text>
-<g><circle cx="72" cy="116" r="20"/><text class="number" x="72" y="121">01</text><text class="label" x="72" y="164">호스트 선택</text></g>
-<g><circle cx="228" cy="116" r="20"/><text class="number" x="228" y="121">02</text><text class="label" x="228" y="164">SSH 확인</text></g>
-<g><circle cx="384" cy="116" r="20"/><text class="number" x="384" y="121">03</text><text class="label" x="384" y="164">경로 확인</text></g>
-<g class="optional"><circle cx="540" cy="116" r="20"/><text class="number" x="540" y="121">04</text><text class="label" x="540" y="164">SSH로 접속</text></g>
-<g class="optional"><circle cx="696" cy="116" r="20"/><text class="number" x="696" y="121">05</text><text class="label" x="696" y="164">직접 연결</text></g>
-<g><circle cx="852" cy="116" r="20"/><text class="number" x="852" y="121">06</text><text class="label" x="852" y="164">작업 지시</text></g>
-<g><circle cx="1008" cy="116" r="20"/><text class="number" x="1008" y="121">07</text><text class="label" x="1008" y="164">결과 검증</text></g>
+<text class="choice" x="618" y="44" data-i18n="flow.choice">04·05 중 하나 선택</text>
+<g><circle cx="72" cy="116" r="20"/><text class="number" x="72" y="121">01</text><text class="label" x="72" y="164" data-i18n="flow.n1">호스트 선택</text></g>
+<g><circle cx="228" cy="116" r="20"/><text class="number" x="228" y="121">02</text><text class="label" x="228" y="164" data-i18n="flow.n2">SSH 확인</text></g>
+<g><circle cx="384" cy="116" r="20"/><text class="number" x="384" y="121">03</text><text class="label" x="384" y="164" data-i18n="flow.n3">경로 확인</text></g>
+<g class="optional"><circle cx="540" cy="116" r="20"/><text class="number" x="540" y="121">04</text><text class="label" x="540" y="164" data-i18n="flow.n4">SSH로 접속</text></g>
+<g class="optional"><circle cx="696" cy="116" r="20"/><text class="number" x="696" y="121">05</text><text class="label" x="696" y="164" data-i18n="flow.n5">직접 연결</text></g>
+<g><circle cx="852" cy="116" r="20"/><text class="number" x="852" y="121">06</text><text class="label" x="852" y="164" data-i18n="flow.n6">작업 지시</text></g>
+<g><circle cx="1008" cy="116" r="20"/><text class="number" x="1008" y="121">07</text><text class="label" x="1008" y="164" data-i18n="flow.n7">결과 검증</text></g>
 </svg></div></figure>
-<a href="https://herdr.dev/docs/how-to-work/">공식 원격 작업 가이드</a></section>
-<section id="handoff"><h2>에이전트에게 작업 맡기기</h2>
-<p>사이드바에서 진행 상태와 입력 대기를 확인하세요. CLI 명령은 설치된 버전의 도움말과 공식 스킬을 참고하세요.</p><figure class="code"><figcaption>Herdr CLI <button type="button" hidden data-copy>복사</button></figcaption><pre><code>herdr pane list
+<a href="https://herdr.dev/docs/how-to-work/" data-i18n="remote.link">공식 원격 작업 가이드</a></section>
+<section id="handoff"><h2 data-i18n="handoff.title">에이전트에게 작업 맡기기</h2>
+<p data-i18n-html="handoff.intro">사이드바에서 진행 상태와 입력 대기를 확인하세요. CLI 명령은 설치된 버전의 도움말과 공식 스킬을 참고하세요.</p><figure class="code"><figcaption><span data-i18n="ui.cli">Herdr CLI</span> <button type="button" hidden data-copy data-i18n="ui.copy">복사</button></figcaption><pre><code>herdr pane list
 herdr agent list
 herdr agent --help</code></pre></figure>
-<p>작업 지시에 호스트와 저장소 경로, 수정 범위와 검증 기준을 적으세요.</p><figure class="code"><figcaption>작업 지시 예시 <button type="button" hidden data-copy>복사</button></figcaption><pre><code>개발 호스트의 /work/demo에서 README의 실행 절차를 확인해 주세요.
+<p data-i18n="handoff.prompt">작업 지시에 호스트와 저장소 경로, 수정 범위와 검증 기준을 적으세요.</p><figure class="code"><figcaption><span data-i18n="handoff.sample">작업 지시 예시</span> <button type="button" hidden data-copy data-i18n="ui.copy">복사</button></figcaption><pre><code data-i18n="handoff.sampleBody">개발 호스트의 /work/demo에서 README의 실행 절차를 확인해 주세요.
 문서만 수정하고, 실행한 확인 명령과 남은 제약을 보고해 주세요.</code></pre></figure>
-<p>패널이 완료로 표시되면 변경 내역과 검증 명령의 출력을 검토하세요.</p><a href="https://github.com/herdrdev/herdr/blob/master/skills/herdr/SKILL.md">공식 Herdr 스킬</a></section>
-<section id="troubleshoot"><h2>입력과 연결 문제 해결</h2>
-<ul><li>한글 조합 중 키가 반응하지 않으면 조합을 끝내거나 영문 입력으로 전환하세요.</li><li>그래도 반응하지 않으면 OS와 터미널이 같은 키 조합을 사용하는지 확인하세요.</li><li>원격 연결이 끊기면 SSH, 프로젝트 경로, Herdr 세션을 차례로 확인하세요. 패널 ID가 만료됐다면 목록을 다시 조회하세요.</li></ul></section>
-<section><h2>이 페이지에 적용한 것</h2><p>행 구분선과 코드 머리줄로 구조를 정리했습니다. 산화철 주황을 링크와 진행 표시 등에 적용했고, 7단계 흐름을 SVG로 그렸습니다. 모바일에서도 명령을 표시합니다.</p></section>
+<p data-i18n="handoff.review">패널이 완료로 표시되면 변경 내역과 검증 명령의 출력을 검토하세요.</p><a href="https://github.com/herdrdev/herdr/blob/master/skills/herdr/SKILL.md" data-i18n="handoff.link">공식 Herdr 스킬</a></section>
+<section id="skills"><h2 data-i18n="skills.title">에이전트에 붙이는 스킬 4가지</h2>
+<p data-i18n-html="skills.lead">패널에서 에이전트를 돌릴 때 결과물의 완성도를 좌우하는 커뮤니티 스킬입니다. 설치 명령과 실전 프롬프트, 각 스킬이 하지 않는 일은 <a href="https://dogebi.github.io/claude-code-4-skills/">별도 정리 페이지</a>에 있습니다.</p>
+<dl class="skills">
+<div><dt data-i18n="skills.u.name">Unslop</dt><dd><span data-i18n="skills.u.role">화면 점검</span><small data-i18n="skills.u.body">보라 그라데이션, 글로우, 이모지 라벨, 과장 문구, 들쭉날쭉한 간격을 위치와 함께 짚고 고친 HTML을 만듭니다.</small><span class="when" data-i18n="skills.u.when">이미 화면이 있을 때</span></dd></div>
+<div><dt data-i18n="skills.ui.name">UI UX Pro Max</dt><dd><span data-i18n="skills.ui.role">디자인 방향</span><small data-i18n="skills.ui.body">제품 유형과 업종에 맞는 레이아웃·팔레트·글꼴 조합을 고르고, 피해야 할 패턴을 먼저 정합니다.</small><span class="when" data-i18n="skills.ui.when">구현 전</span></dd></div>
+<div><dt data-i18n="skills.d.name">Diagram Design</dt><dd><span data-i18n="skills.d.role">구조 시각화</span><small data-i18n="skills.d.body">아키텍처, 데이터 흐름, 시퀀스를 인라인 SVG가 든 HTML 한 장으로 그립니다. 화살표와 라벨이 겹치지 않게.</small><span class="when" data-i18n="skills.d.when">구조를 설명할 때</span></dd></div>
+<div><dt data-i18n="skills.h.name">Humanizer</dt><dd><span data-i18n="skills.h.role">문장 교정</span><small data-i18n="skills.h.body">대비 강조, 극적 결론, 의미 부풀리기를 걷어냅니다. 사실과 숫자는 건드리지 않습니다.</small><span class="when" data-i18n="skills.h.when">공개 문구 마무리</span></dd></div>
+</dl>
+<p class="note" data-i18n-html="skills.note">네 가지 모두 Anthropic 공식 기능이 아닌 커뮤니티 제작 스킬입니다. 설치 전에 저장소 코드와 요청 권한을 읽고, 결과물은 사람이 마지막에 확인하세요.</p>
+</section>
+<section id="troubleshoot"><h2 data-i18n="trouble.title">입력과 연결 문제 해결</h2>
+<ul><li data-i18n="trouble.i1">한글 조합 중 키가 반응하지 않으면 조합을 끝내거나 영문 입력으로 전환하세요.</li><li data-i18n="trouble.i2">그래도 반응하지 않으면 OS와 터미널이 같은 키 조합을 사용하는지 확인하세요.</li><li data-i18n="trouble.i3">원격 연결이 끊기면 SSH, 프로젝트 경로, Herdr 세션을 차례로 확인하세요. 패널 ID가 만료됐다면 목록을 다시 조회하세요.</li></ul></section>
+<section id="applied"><h2 data-i18n="applied.title">이 페이지에 적용한 것</h2><p data-i18n="applied.body">행 구분선과 코드 머리줄로 구조를 정리했습니다. 산화철 주황을 링크와 진행 표시 등에 적용했고, 7단계 흐름을 SVG로 그렸습니다. 모바일에서도 명령을 표시합니다. 언어는 한국어·중국어·일본어 세 가지이며, 라이트·다크 테마를 상단에서 바꿉니다.</p></section>
 </main>
-<footer><a href="https://herdr.dev/docs/">Herdr 공식 문서</a></footer>
+<footer><a href="https://herdr.dev/docs/" data-i18n="foot.link">Herdr 공식 문서</a></footer>
 <div class="sr-only" role="status" id="copy-status"></div>
 </body>
 </html>

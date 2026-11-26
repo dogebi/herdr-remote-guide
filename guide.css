@@ -6,8 +6,20 @@
   --muted: #58534c;
   --line: #c9c1b3;
   --accent: #a2381e;
+  --surface: #eee9df;
+  --chip: #e9e3d8;
   --mono: ui-monospace, "Cascadia Mono", monospace;
   font: 100%/1.75 system-ui, sans-serif;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #16150f;
+  --ink: #f2eee3;
+  --muted: #a9a294;
+  --line: #35322a;
+  --accent: #e07a4a;
+  --surface: #1e1c15;
+  --chip: #2a2721;
 }
 * { box-sizing: border-box; }
 html { scroll-padding-top: 7rem; }
@@ -44,9 +56,9 @@ dl { max-width: 36rem; margin: 1.2rem 0; }
 dl > div { display: flex; justify-content: space-between; gap: 1rem; padding: .4rem 0; border-bottom: 1px solid var(--line); }
 dd { margin: 0; }
 kbd, code, pre, .number { font-family: var(--mono); }
-kbd, p code { background: #e9e3d8; padding: .12em .38em; }
+kbd, p code { background: var(--chip); padding: .12em .38em; }
 figure { margin: 1.4rem 0; }
-.code { max-width: 50rem; background: #eee9df; }
+.code { max-width: 50rem; background: var(--surface); }
 figcaption { font-weight: 650; }
 .code figcaption { min-height: 62px; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .65rem 1rem; border-bottom: 1px solid var(--line); }
 button { font: inherit; font-size: .82rem; min-height: 28px; padding: 0 .65em; color: var(--ink); background: var(--paper); border: 1px solid var(--line); cursor: pointer; }
@@ -62,3 +74,35 @@ svg .brace, svg .optional circle { stroke: var(--accent); }
 svg circle { fill: var(--paper); stroke: var(--muted); stroke-width: 2; }
 footer { padding-block: 1.25rem 2.5rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ── 상단 바: 언어 · 테마 ───────────────────────────────────────────── */
+.bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: .5rem 1rem; padding-bottom: .75rem; border-bottom: 1px solid var(--line);
+  font: .8rem/1 var(--mono); letter-spacing: .04em; color: var(--muted);
+}
+.bar .tools { display: flex; align-items: center; gap: .5rem; margin-left: auto; }
+.langs { display: flex; gap: 2px; }
+.lang-btn, .theme-btn {
+  font: .8rem/1 system-ui, sans-serif; letter-spacing: 0; white-space: nowrap;
+  min-height: 28px; padding: 0 .55em; color: var(--muted);
+  background: none; border: 1px solid var(--line); cursor: pointer;
+}
+.lang-btn:hover, .theme-btn:hover { color: var(--ink); border-color: var(--ink); }
+.lang-btn[aria-pressed="true"], .theme-btn[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
+
+/* ── 스킬 목록 ─────────────────────────────────────────────────────── */
+dl.skills { max-width: 52rem; }
+dl.skills > div { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: .2rem 1.25rem; padding: 1.05rem 0; align-items: baseline; }
+dl.skills dt { font-weight: 700; }
+dl.skills dd { display: grid; gap: .3rem; }
+dl.skills dd small { color: var(--muted); font-size: .95rem; max-width: 60ch; }
+dl.skills .when { font: .78rem/1.4 var(--mono); color: var(--accent); letter-spacing: .02em; margin-top: .1rem; }
+.note { color: var(--muted); font-size: .93rem; max-width: 62ch; }
+@media (max-width: 40rem) {
+  dl.skills > div { grid-template-columns: 1fr; }
+}
+
+/* 중국어·일본어는 어절이 아니라 글자 단위로 끊는다. 일본어 제목은 구(句) 단위. */
+:lang(zh-Hans) p, :lang(zh-Hans) li, :lang(zh-Hans) dd, :lang(ja) p, :lang(ja) li, :lang(ja) dd { word-break: normal; line-break: strict; }
+:lang(ja) h1, :lang(ja) h2 { word-break: auto-phrase; }
