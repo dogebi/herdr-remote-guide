@@ -1,4 +1,4 @@
-﻿/* 다국어 가이드의 지면, 코드 블록, 타임라인을 꾸민다. */
+/* Herdr 가이드의 지면, 코드 블록, 타임라인을 꾸민다. */
 :root {
   color-scheme: light;
   --paper: #f8f5ee;
@@ -17,8 +17,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); }
   margin-inline: auto;
 }
 .intro { padding-block: 1.25rem 2rem; }
-.languages, .contents > div, footer { display: flex; flex-wrap: wrap; gap: .35rem 1.25rem; }
-.languages { justify-content: flex-end; }
+.contents > div, footer { display: flex; flex-wrap: wrap; gap: .35rem 1.25rem; }
 a { color: var(--accent); text-underline-offset: .25em; }
 a[aria-current] { color: var(--ink); font-weight: 700; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
