@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<!-- Herdr 키맵과 원격 작업 안내 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Herdr field guide · Key bindings and remote sessions</title>
+<meta name="description" content="Split panes, connect to a remote host, and review the work your agents produce.">
+<link rel="alternate" hreflang="ko" href="../">
+<link rel="alternate" hreflang="zh-CN" href="../cn/">
+<link rel="alternate" hreflang="ja" href="../ja/">
+<link rel="alternate" hreflang="en" href="../en/">
+<link rel="stylesheet" href="../guide.css">
+<script defer src="../guide.js"></script>
+</head>
+<body data-copied="Copied" data-failed="Copy failed">
+<header class="intro">
+<nav class="languages" aria-label="Language"><a href="../" hreflang="ko" lang="ko">한국어</a><a href="../cn/" hreflang="zh-CN" lang="zh-CN">简体中文</a><a href="../ja/" hreflang="ja" lang="ja">日本語</a><a href="../en/" hreflang="en" lang="en" aria-current="page">English</a></nav>
+<h1>Herdr field guide</h1>
+<p class="subtitle">Key bindings and remote sessions</p>
+<p class="lead">Split panes, connect to a remote host, and review the work your agents produce.</p>
+</header>
+<nav class="contents" aria-label="Contents">
+<div><a href="#keyboard">Keyboard</a><a href="#remote">Remote access</a><a href="#handoff">Task handoff</a><a href="#troubleshoot">Troubleshooting</a></div>
+<progress aria-label="Reading progress" max="100" value="0"></progress>
+</nav>
+<main>
+<section id="keyboard"><h2>Manage panes with the keyboard</h2>
+<p>The default prefix is <kbd>Ctrl+B</kbd>. Press and release it, then press an action key.</p>
+<dl><div><dt>Show active bindings</dt><dd><kbd>?</kbd></dd></div><div><dt>Split right</dt><dd><kbd>v</kbd></dd></div><div><dt>Split down</dt><dd><kbd>-</kbd></dd></div><div><dt>Open a tab</dt><dd><kbd>c</kbd></dd></div><div><dt>Detach from the session</dt><dd><kbd>q</kbd></dd></div></dl>
+<p>Edit shortcuts under <code>[keys]</code>, then press <kbd>prefix</kbd> → <kbd>?</kbd> to check what took effect.</p><a href="https://herdr.dev/docs/keyboard/">Official keyboard docs</a></section>
+<section id="remote"><h2>Work on another computer</h2>
+<p>Install Herdr and the agent CLI on the remote host. Connect over SSH and start Herdr in the project directory. Reconnect to the same host to resume the session.</p><figure class="code"><figcaption>Terminal <button type="button" hidden data-copy>Copy</button></figcaption><pre><code>ssh dev-host
+cd /path/to/project
+herdr</code></pre></figure>
+<p>To attach from your local client, use <code>herdr --remote</code>. Choose either SSH or direct attachment.</p>
+<figure class="workflow"><figcaption>Remote workflow</figcaption>
+<div class="diagram" tabindex="0" role="region" aria-label="Remote workflow">
+<svg viewBox="0 0 1080 268" width="1080" height="268" role="img" aria-labelledby="flow-title flow-description">
+<title id="flow-title">Remote workflow</title><desc id="flow-description">Pick host, Check SSH, Check path, SSH login, Direct attach, Hand off task, Verify output. Choose 04 or 05.</desc>
+<path class="route" d="M72 116H384 M696 116H1008"/>
+<path class="route alternative" d="M384 116H696"/>
+<path class="brace" d="M496 76V60H740V76"/>
+<text class="choice" x="618" y="44">Choose 04 or 05</text>
+<g><circle cx="72" cy="116" r="20"/><text class="number" x="72" y="121">01</text><text class="label" x="72" y="164">Pick host</text></g>
+<g><circle cx="228" cy="116" r="20"/><text class="number" x="228" y="121">02</text><text class="label" x="228" y="164">Check SSH</text></g>
+<g><circle cx="384" cy="116" r="20"/><text class="number" x="384" y="121">03</text><text class="label" x="384" y="164">Check path</text></g>
+<g class="optional"><circle cx="540" cy="116" r="20"/><text class="number" x="540" y="121">04</text><text class="label" x="540" y="164">SSH login</text></g>
+<g class="optional"><circle cx="696" cy="116" r="20"/><text class="number" x="696" y="121">05</text><text class="label" x="696" y="164">Direct attach</text></g>
+<g><circle cx="852" cy="116" r="20"/><text class="number" x="852" y="121">06</text><text class="label" x="852" y="164">Hand off task</text></g>
+<g><circle cx="1008" cy="116" r="20"/><text class="number" x="1008" y="121">07</text><text class="label" x="1008" y="164">Verify output</text></g>
+</svg></div></figure>
+<a href="https://herdr.dev/docs/how-to-work/">Official remote workflow</a></section>
+<section id="handoff"><h2>Hand off a task</h2>
+<p>Check progress and requests for input in the sidebar. For CLI operations, consult the installed version’s help and the official skill.</p><figure class="code"><figcaption>Herdr CLI <button type="button" hidden data-copy>Copy</button></figcaption><pre><code>herdr pane list
+herdr agent list
+herdr agent --help</code></pre></figure>
+<p>Give the agent the host, repository path, allowed changes, and verification criteria.</p><figure class="code"><figcaption>Example task <button type="button" hidden data-copy>Copy</button></figcaption><pre><code>On the development host, check the README startup steps in /work/demo.
+Edit only the docs. Report the checks you ran and any remaining limitations.</code></pre></figure>
+<p>When the pane reports completion, inspect the diff and output from the checks.</p><a href="https://github.com/herdrdev/herdr/blob/master/skills/herdr/SKILL.md">Official Herdr skill</a></section>
+<section id="troubleshoot"><h2>Fix input and connection issues</h2>
+<ul><li>If the input method is composing text, finish composition or switch to direct input.</li><li>If a shortcut still fails, check whether the OS or terminal intercepts that key combination.</li><li>After a disconnect, check SSH, the project path, and the Herdr session. If a pane ID is stale, list the panes again.</li></ul></section>
+<section><h2>Changes on this page</h2><p>Dividers and code headers organize the guide. Rust orange marks links and progress, and a seven-step SVG maps the workflow. The copy and controls come in four languages, with commands visible on mobile.</p></section>
+</main>
+<footer><a href="https://blog.stefancho.dev/youtube/herdr-keymap-remote-agents">Reference article · Stefan Cho</a><a href="https://herdr.dev/docs/">Herdr documentation</a></footer>
+<div class="sr-only" role="status" id="copy-status"></div>
+</body>
+</html>

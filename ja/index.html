@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<!-- Herdr 키맵과 원격 작업 안내 -->
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Herdr 実践ガイド · キーマップとリモート作業</title>
+<meta name="description" content="ペインを分割し、リモートホストに接続して、エージェントの作業結果を確認します。">
+<link rel="alternate" hreflang="ko" href="../">
+<link rel="alternate" hreflang="zh-CN" href="../cn/">
+<link rel="alternate" hreflang="ja" href="../ja/">
+<link rel="alternate" hreflang="en" href="../en/">
+<link rel="stylesheet" href="../guide.css">
+<script defer src="../guide.js"></script>
+</head>
+<body data-copied="コピー済み" data-failed="コピーできませんでした">
+<header class="intro">
+<nav class="languages" aria-label="言語"><a href="../" hreflang="ko" lang="ko">한국어</a><a href="../cn/" hreflang="zh-CN" lang="zh-CN">简体中文</a><a href="../ja/" hreflang="ja" lang="ja" aria-current="page">日本語</a><a href="../en/" hreflang="en" lang="en">English</a></nav>
+<h1>Herdr 実践ガイド</h1>
+<p class="subtitle">キーマップとリモート作業</p>
+<p class="lead">ペインを分割し、リモートホストに接続して、エージェントの作業結果を確認します。</p>
+</header>
+<nav class="contents" aria-label="目次">
+<div><a href="#keyboard">キーボード</a><a href="#remote">リモート接続</a><a href="#handoff">作業の引き継ぎ</a><a href="#troubleshoot">トラブル対処</a></div>
+<progress aria-label="読了進捗" max="100" value="0"></progress>
+</nav>
+<main>
+<section id="keyboard"><h2>キーボードでペインを操作する</h2>
+<p>既定のプレフィックスは <kbd>Ctrl+B</kbd> です。押して離してから操作キーを押します。</p>
+<dl><div><dt>現在のキーマップを表示</dt><dd><kbd>?</kbd></dd></div><div><dt>右へ分割</dt><dd><kbd>v</kbd></dd></div><div><dt>下へ分割</dt><dd><kbd>-</kbd></dd></div><div><dt>新しいタブを開く</dt><dd><kbd>c</kbd></dd></div><div><dt>セッションから離れる</dt><dd><kbd>q</kbd></dd></div></dl>
+<p>設定の <code>[keys]</code> で変更し、<kbd>プレフィックス</kbd> → <kbd>?</kbd> で反映を確認します。</p><a href="https://herdr.dev/docs/keyboard/">公式キーボード文書</a></section>
+<section id="remote"><h2>別のコンピューターで作業する</h2>
+<p>リモートホストに Herdr と必要なエージェント CLI を用意します。SSH で接続し、プロジェクトのディレクトリで Herdr を起動します。同じホストに接続し直せばセッションを再開できます。</p><figure class="code"><figcaption>端末 <button type="button" hidden data-copy>コピー</button></figcaption><pre><code>ssh dev-host
+cd /path/to/project
+herdr</code></pre></figure>
+<p>ローカルクライアントからは <code>herdr --remote</code> でも接続できます。SSH と直接接続のどちらかを選びます。</p>
+<figure class="workflow"><figcaption>作業の流れ</figcaption>
+<div class="diagram" tabindex="0" role="region" aria-label="作業の流れ">
+<svg viewBox="0 0 1080 268" width="1080" height="268" role="img" aria-labelledby="flow-title flow-description">
+<title id="flow-title">作業の流れ</title><desc id="flow-description">ホスト選択, SSH 確認, パス確認, SSH 接続, 直接接続, 作業を依頼, 結果を検証. 04・05 のどちらかを選択.</desc>
+<path class="route" d="M72 116H384 M696 116H1008"/>
+<path class="route alternative" d="M384 116H696"/>
+<path class="brace" d="M496 76V60H740V76"/>
+<text class="choice" x="618" y="44">04・05 のどちらかを選択</text>
+<g><circle cx="72" cy="116" r="20"/><text class="number" x="72" y="121">01</text><text class="label" x="72" y="164">ホスト選択</text></g>
+<g><circle cx="228" cy="116" r="20"/><text class="number" x="228" y="121">02</text><text class="label" x="228" y="164">SSH 確認</text></g>
+<g><circle cx="384" cy="116" r="20"/><text class="number" x="384" y="121">03</text><text class="label" x="384" y="164">パス確認</text></g>
+<g class="optional"><circle cx="540" cy="116" r="20"/><text class="number" x="540" y="121">04</text><text class="label" x="540" y="164">SSH 接続</text></g>
+<g class="optional"><circle cx="696" cy="116" r="20"/><text class="number" x="696" y="121">05</text><text class="label" x="696" y="164">直接接続</text></g>
+<g><circle cx="852" cy="116" r="20"/><text class="number" x="852" y="121">06</text><text class="label" x="852" y="164">作業を依頼</text></g>
+<g><circle cx="1008" cy="116" r="20"/><text class="number" x="1008" y="121">07</text><text class="label" x="1008" y="164">結果を検証</text></g>
+</svg></div></figure>
+<a href="https://herdr.dev/docs/how-to-work/">公式リモート作業ガイド</a></section>
+<section id="handoff"><h2>エージェントに作業を任せる</h2>
+<p>サイドバーで進捗や入力待ちを確認します。CLI の操作はインストール済みのバージョンのヘルプと公式スキルを参照してください。</p><figure class="code"><figcaption>Herdr CLI <button type="button" hidden data-copy>コピー</button></figcaption><pre><code>herdr pane list
+herdr agent list
+herdr agent --help</code></pre></figure>
+<p>依頼にはホスト、リポジトリのパス、変更範囲、検証条件を記載します。</p><figure class="code"><figcaption>依頼の例 <button type="button" hidden data-copy>コピー</button></figcaption><pre><code>開発ホストの /work/demo で README の起動手順を確認してください。
+文書のみを修正し、実行した確認コマンドと残る制約を報告してください。</code></pre></figure>
+<p>完了表示が出たら、差分と検証コマンドの出力を確認します。</p><a href="https://github.com/herdrdev/herdr/blob/master/skills/herdr/SKILL.md">公式 Herdr スキル</a></section>
+<section id="troubleshoot"><h2>入力と接続の問題を調べる</h2>
+<ul><li>IME の変換中に反応しない場合は、入力を確定するか英数入力に切り替えます。</li><li>反応しないキーが OS や端末のショートカットと重複していないか確認します。</li><li>接続が切れたら SSH、プロジェクトのパス、Herdr セッションを順に確認します。古いペイン ID が使えないときは一覧を取り直します。</li></ul></section>
+<section><h2>このページの変更点</h2><p>区切り線とコード見出しで構成を整理しました。リンクや進捗表示にさび色を使い、7 ステップを SVG にまとめました。文章と操作ラベルは4言語に対応し、モバイルでもコマンドを表示します。</p></section>
+</main>
+<footer><a href="https://blog.stefancho.dev/youtube/herdr-keymap-remote-agents">参考記事 · Stefan Cho</a><a href="https://herdr.dev/docs/">Herdr 公式文書</a></footer>
+<div class="sr-only" role="status" id="copy-status"></div>
+</body>
+</html>

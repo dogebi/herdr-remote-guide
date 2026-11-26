@@ -1,0 +1,65 @@
+﻿/* 다국어 가이드의 지면, 코드 블록, 타임라인을 꾸민다. */
+:root {
+  color-scheme: light;
+  --paper: #f8f5ee;
+  --ink: #252421;
+  --muted: #58534c;
+  --line: #c9c1b3;
+  --accent: #a2381e;
+  --mono: ui-monospace, "Cascadia Mono", monospace;
+  font: 100%/1.75 system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 7rem; }
+body { margin: 0; background: var(--paper); color: var(--ink); }
+.intro, main, footer, .contents > div {
+  width: min(100% - 2rem, 70rem);
+  margin-inline: auto;
+}
+.intro { padding-block: 1.25rem 2rem; }
+.languages, .contents > div, footer { display: flex; flex-wrap: wrap; gap: .35rem 1.25rem; }
+.languages { justify-content: flex-end; }
+a { color: var(--accent); text-underline-offset: .25em; }
+a[aria-current] { color: var(--ink); font-weight: 700; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+h1, h2, .subtitle {
+  font-family: Georgia, "Noto Serif CJK KR", "Noto Serif CJK SC", "Noto Serif CJK JP", "Yu Mincho", Batang, SimSun, serif;
+  line-height: 1.2;
+  font-synthesis: none;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2.7rem, 8vw, 6rem); margin: clamp(2rem, 6vw, 5rem) 0 .25em; }
+h2 { font-size: clamp(1.7rem, 4vw, 2.75rem); margin: 0 0 .7em; }
+.subtitle { font-size: clamp(1.25rem, 3vw, 2rem); margin: 0; }
+.lead { color: var(--muted); }
+p, li { max-width: 68ch; text-wrap: pretty; }
+:lang(ko) h1, :lang(ko) h2, :lang(ko) p, :lang(ko) li, :lang(ko) dt { word-break: keep-all; }
+.contents { position: sticky; top: 0; z-index: 1; background: var(--paper); border-top: 1px solid var(--line); }
+.contents > div { padding-block: .65rem; }
+progress { display: block; width: 100%; height: 3px; border: 0; appearance: none; background: var(--line); }
+progress::-webkit-progress-bar { background: var(--line); }
+progress::-webkit-progress-value { background: var(--accent); }
+progress::-moz-progress-bar { background: var(--accent); }
+section { padding-block: clamp(2.2rem, 6vw, 4.4rem); border-bottom: 1px solid var(--line); }
+dl { max-width: 36rem; margin: 1.2rem 0; }
+dl > div { display: flex; justify-content: space-between; gap: 1rem; padding: .4rem 0; border-bottom: 1px solid var(--line); }
+dd { margin: 0; }
+kbd, code, pre, .number { font-family: var(--mono); }
+kbd, p code { background: #e9e3d8; padding: .12em .38em; }
+figure { margin: 1.4rem 0; }
+.code { max-width: 50rem; background: #eee9df; }
+figcaption { font-weight: 650; }
+.code figcaption { min-height: 62px; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .65rem 1rem; border-bottom: 1px solid var(--line); }
+button { font: inherit; font-size: .82rem; min-height: 28px; padding: 0 .65em; color: var(--ink); background: var(--paper); border: 1px solid var(--line); cursor: pointer; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; padding: 1rem; font-size: .91rem; }
+.diagram { overflow-x: auto; border-bottom: 1px solid var(--line); }
+svg { display: block; width: 100%; min-width: 920px; height: auto; }
+svg text { text-anchor: middle; fill: var(--ink); }
+svg .label { font-size: 17px; }
+svg .choice { fill: var(--accent); font-size: 16px; }
+svg .route, svg .brace { fill: none; stroke: var(--muted); stroke-width: 2; }
+svg .alternative { stroke-dasharray: 8 4; }
+svg .brace, svg .optional circle { stroke: var(--accent); }
+svg circle { fill: var(--paper); stroke: var(--muted); stroke-width: 2; }
+footer { padding-block: 1.25rem 2.5rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
